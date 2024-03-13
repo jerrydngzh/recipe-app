@@ -1,0 +1,22 @@
+version: '3.9'
+
+services:
+  server:
+    image: jerrydngzh/cmpt372.a2.recipe-app
+    ports:
+      - "3000:3000"
+    depends_on:
+      db:
+        condition: service_healthy
+  db:
+    image: 'postgres'
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: 'postgres'
+      POSTGRES_PASSWORD: 'root'
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready", "-d", "db_prod"]
+      interval: 5s
+      timeout: 10s
+      retries: 5

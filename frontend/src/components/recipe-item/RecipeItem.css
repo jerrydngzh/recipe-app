@@ -1,0 +1,16 @@
+li {
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.item-div {
+    padding: 20px;
+}
+
+.item-div:hover {
+    background-color: hsla(0, 0%, 100%, 0.081);
+    cursor: pointer;
+    border-radius: 10px;
+}
